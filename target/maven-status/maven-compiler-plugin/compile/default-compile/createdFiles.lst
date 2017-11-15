@@ -1,0 +1,6 @@
+nl\appli\garage\model\Car.class
+nl\appli\garage\model\Owner.class
+nl\appli\garage\controllers\OwnerController.class
+nl\appli\garage\services\OwnerService.class
+nl\appli\garage\controllers\CarController.class
+nl\appli\garage\services\CarService.class
