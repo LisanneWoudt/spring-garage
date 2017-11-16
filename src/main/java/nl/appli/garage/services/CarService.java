@@ -54,12 +54,4 @@ public class CarService {
     }
 
 }
-  /*  public Car savePerson(int id) {
-        Car car = em.find(Car.class, id);
-        Owner owner = new Owner("Lisanne", "Woudt", 12345678, "lisanne@mail.com");
-        car.setOwner(owner);
-        em.persist(car);
-        return car;
-    }*/
-
 

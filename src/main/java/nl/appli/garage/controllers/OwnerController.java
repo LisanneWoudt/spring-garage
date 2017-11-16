@@ -1,13 +1,11 @@
 package nl.appli.garage.controllers;
 
+import nl.appli.garage.model.Car;
 import nl.appli.garage.model.Owner;
 import nl.appli.garage.services.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +26,11 @@ public class OwnerController {
     @RequestMapping(value = "/new_owner", method = RequestMethod.POST)
     public Owner addOwner(@RequestBody Owner owner) {
         return ownerService.addOwner(owner);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/car_owner/{id}", method = RequestMethod.PUT)
+    public Car updateCarOwner(@PathVariable Integer id,  @RequestBody Owner owner) {
+        return ownerService.updateCarOwner(id, owner);
     }
 }

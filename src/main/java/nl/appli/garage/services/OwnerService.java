@@ -1,4 +1,5 @@
 package nl.appli.garage.services;
+import nl.appli.garage.model.Car;
 import nl.appli.garage.model.Owner;
 import org.springframework.stereotype.Repository;
 
@@ -24,5 +25,11 @@ public class OwnerService {
         return em.createQuery("from " + Owner.class.getSimpleName()).getResultList();
     }
 
+    public Car updateCarOwner(int id, Owner owner){
+        Car c = em.find(Car.class, id);
+        c.setOwner(owner);
+        em.merge(c);
+        return c;
+    }
 
 }

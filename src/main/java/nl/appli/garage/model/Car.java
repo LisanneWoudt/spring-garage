@@ -12,20 +12,16 @@ public class Car {
     private String numberPlate;
     private String status;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Owner owner;
+
     public Car(){};
 
-    public Car(String brand, String numberPlate, String status) {
+    public Car(String brand, String numberPlate, String status, Owner owner) {
         this.brand = brand;
         this.numberPlate = numberPlate;
         this.status = status;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+        this.owner = owner;
     }
 
     public int getId() {
@@ -52,8 +48,20 @@ public class Car {
         this.numberPlate = numberPlate;
     }
 
-    public float add(float x, float y){
-        return x + y;
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
     @Override
@@ -62,7 +70,8 @@ public class Car {
                 "id=" + id +
                 ", brand='" + brand + '\'' +
                 ", numberPlate='" + numberPlate + '\'' +
-                ", status=" + status +
+                ", status='" + status + '\'' +
+                ", owner=" + owner +
                 '}';
     }
 }
